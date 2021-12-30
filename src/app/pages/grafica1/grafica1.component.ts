@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class Grafica1Component implements OnInit {
-
+  label: string[] = [ 'Carpongo', 'Platanos', 'Huaycan' ];
   constructor() { }
 
   ngOnInit(): void {
