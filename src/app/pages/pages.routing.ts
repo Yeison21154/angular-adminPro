@@ -4,15 +4,19 @@ import { DasboardComponent } from "./dasboard/dasboard.component";
 import { Grafica1Component } from "./grafica1/grafica1.component";
 import { PagesComponent } from "./pages.component";
 import { ProgressComponent } from "./progress/progress.component";
+import { PromesasComponent } from "./promesas/promesas.component";
 import { SettingsComponent } from './settings/settings.component';
+import { RXJSComponent } from './rxjs/rxjs.component';
 
 
 const routes:Routes =[
     { path: 'dashboard', component:PagesComponent, children:[
-        { path:'', component:DasboardComponent },
-        { path:'progress', component:ProgressComponent },
-        { path:'grafica1', component:Grafica1Component },
-        { path:'settings', component:SettingsComponent }
+        { path:'', component:DasboardComponent,data:{titulo:"Dashboard"}},
+        { path:'progress', component:ProgressComponent,data:{titulo:"Progress"} },
+        { path:'grafica1', component:Grafica1Component,data:{titulo:"Graficas"} },
+        { path:'settings', component:SettingsComponent,data:{titulo:"Settings"} },
+        { path:'promesas', component:PromesasComponent,data:{titulo:"Promesas"} },
+        { path:'rxjs', component:RXJSComponent,data:{titulo:"Rxjs"}}
       ]},
       
 ]

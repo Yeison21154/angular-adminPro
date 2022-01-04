@@ -9,8 +9,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { SettingsComponent } from './settings/settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RXJSComponent } from './rxjs/rxjs.component';
 
-const MyModules =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent]
+const MyModules =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,PromesasComponent,RXJSComponent]
 
 @NgModule({
   declarations: [MyModules],

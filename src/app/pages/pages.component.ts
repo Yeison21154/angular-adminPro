@@ -10,10 +10,11 @@ declare function initFunctions():any;
 })
 export class PagesComponent implements OnInit {
 
-  constructor(private _setting:SettingsService) { }
+  constructor(private _setting:SettingsService) {  }
 
   ngOnInit(): void {
     initFunctions();
   }
+
 
 }
