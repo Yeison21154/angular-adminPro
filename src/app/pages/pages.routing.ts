@@ -7,10 +7,11 @@ import { ProgressComponent } from "./progress/progress.component";
 import { PromesasComponent } from "./promesas/promesas.component";
 import { SettingsComponent } from './settings/settings.component';
 import { RXJSComponent } from './rxjs/rxjs.component';
+import { AuthGuard } from "../guard/auth.guard";
 
 
-const routes:Routes =[
-    { path: 'dashboard', component:PagesComponent, children:[
+const routes:Routes =[{
+     path: 'dashboard', component:PagesComponent, canActivate:[AuthGuard] ,children:[
         { path:'', component:DasboardComponent,data:{titulo:"Dashboard"}},
         { path:'progress', component:ProgressComponent,data:{titulo:"Progress"} },
         { path:'grafica1', component:Grafica1Component,data:{titulo:"Graficas"} },

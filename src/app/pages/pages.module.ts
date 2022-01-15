@@ -12,11 +12,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RXJSComponent } from './rxjs/rxjs.component';
 
-const MyModules =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,PromesasComponent,RXJSComponent]
+const myComponents =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,PromesasComponent,RXJSComponent]
 
 @NgModule({
-  declarations: [MyModules],
-  exports:[MyModules],
+  declarations: [myComponents],
+  exports:[myComponents],
   imports: [
     CommonModule,
     SharedModule,
