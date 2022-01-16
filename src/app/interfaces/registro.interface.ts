@@ -12,3 +12,8 @@ export interface LoginInt{
     password:string,
     recordar:boolean
 }
+export interface ActUserInt{
+    nombre:string,
+    email:string,
+    rol:string
+}

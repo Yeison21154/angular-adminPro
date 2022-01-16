@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil de Usuarios</font></font></h4>
+                <form class="form p-t-20" [formGroup]="actForm" (ngSubmit)="ActualizarUsuario()">
+                    <div class="form-group">
+                        <label for="exampleInputuname"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre de usuario</font></font></label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input type="text" class="form-control" id="exampleInputuname" formControlName="nombre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dirección de correo electrónico</font></font></label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" [readOnly]="usuario.google">
+                        </div>
+                    </div>
+                    <button type="submit" [disabled]="actForm.invalid" class="btn btn-success waves-effect btn-block waves-light m-r-10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Guardar Cambios</font></font></button>
+                </form>
+            </div>
+        </div>
+    </div>
+<!--subir la imagen-->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Imagen del Usuario</h4>
+                <div class="text-center mb-2">
+                    <img *ngIf="!imgTemp" [src]="usuario.imagenUrl" class="imgPerfilM">
+                    <img *ngIf="imgTemp" [src]="imgTemp" class="imgPerfilM">
+                </div>
+                <input type="file" (change)="cambiarImagen($event)">
+                <br><br>
+                <button type="submit" [disabled]="!imagenSubir" (click)="subirImagen()" class="btn btn-success waves-effect btn-block waves-light m-r-10"><i class="fa fa-save"></i>
+                    Subir Imagen
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

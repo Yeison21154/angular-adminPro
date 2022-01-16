@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.models';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
@@ -8,8 +9,10 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   ]
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private _us:UsuariosService) { }
+  public usuario:Usuario ;
+  constructor(private _us:UsuariosService) { 
+    this.usuario = _us.usuario!;
+  }
 
   logoOuth(){
     this._us.logoOut();

@@ -1,5 +1,6 @@
-
-
+import { environment } from '../../environments/environment.prod';
+const urlAPI= environment.urlAPI;
+let imgUrl = "";
 export class Usuario {
 
     constructor(
@@ -12,4 +13,15 @@ export class Usuario {
         public Estado?:string,
         public uid?:string,
     ){}
+
+    get imagenUrl(){
+        if(this.img?.includes('https:')){
+            return this.img;
+        }
+        if(this.img){
+            return imgUrl= `${urlAPI}/upload/usuarios/${this.img}`
+        } else{
+            return imgUrl= `${urlAPI}/upload/usuarios/no-img`;
+        }
+}
 }

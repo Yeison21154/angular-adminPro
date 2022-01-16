@@ -8,6 +8,7 @@ import { PromesasComponent } from "./promesas/promesas.component";
 import { SettingsComponent } from './settings/settings.component';
 import { RXJSComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from "../guard/auth.guard";
+import { PerfilesComponent } from "./perfiles/perfiles.component";
 
 
 const routes:Routes =[{
@@ -16,6 +17,7 @@ const routes:Routes =[{
         { path:'progress', component:ProgressComponent,data:{titulo:"Progress"} },
         { path:'grafica1', component:Grafica1Component,data:{titulo:"Graficas"} },
         { path:'settings', component:SettingsComponent,data:{titulo:"Settings"} },
+        { path:'perfil', component:PerfilesComponent,data:{titulo:'Perfil de Usuario'}},
         { path:'promesas', component:PromesasComponent,data:{titulo:"Promesas"} },
         { path:'rxjs', component:RXJSComponent,data:{titulo:"Rxjs"}}
       ]},
