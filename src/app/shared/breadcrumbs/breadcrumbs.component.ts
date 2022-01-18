@@ -11,6 +11,7 @@ import { filter, map, Subscription } from 'rxjs';
 export class BreadcrumbsComponent implements OnDestroy{
   public titulo:string="";
   public titulo$:Subscription;
+  
   constructor(private _route:Router) {
     this.titulo$ = this.CargarTitulos()
                   .subscribe(({titulo})=>{

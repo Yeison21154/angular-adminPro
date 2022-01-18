@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { ActUserInt, LoginInt, RegistroInt } from '../interfaces/registro.interface';
 import { environment } from '../../environments/environment.prod';
-import { tap, map, catchError } from 'rxjs/operators';
+import { tap, map, catchError, delay } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.models';
+import { GetUsuarios } from '../interfaces/Usuarios.interface';
 declare const gapi:any;
 const urlAPI = environment.urlAPI;
 @Injectable({
@@ -16,8 +17,18 @@ export class UsuariosService {
   constructor(private http:HttpClient, private _ruta:Router, private ngZone:NgZone) { this.initGoogle(); }
   public auth2:any;
   public usuario! : Usuario;
+  get uid():string{
+    return this.usuario.uid || '';
+  }
   get token (){
     return localStorage.getItem('token') || '';
+  }
+  get header(){
+    return {
+      headers:{
+        'x-token':this.token
+      }
+    }
   }
   initGoogle(){
       return new Promise<void>(resolve=>{
@@ -84,4 +95,22 @@ export class UsuariosService {
       }
     })
   }
+  GetUsuarios(valor:number=0){
+    return this.http.get<GetUsuarios>(`${urlAPI}/usuarios?desde=${valor}`,this.header).pipe(
+      //delay(3000),
+      map(res=>{
+        const usuarios = res.usuarios.map(user=> new Usuario(user.nombre,user.email,'',user.img,user.google,user.rol,user.Estado,user.uid))
+        return {
+          total:res.total,
+          usuarios
+        };
+      })
+    );
+  }
+  BoorarUsuario(usuario:Usuario){
+    return this.http.patch(`${urlAPI}/usuarios/${usuario.uid}`,{Estado:'inactivo'},this.header);
+  }
+  actualizarRol(user:Usuario){ 
+    return this.http.put(`${urlAPI}/usuarios/${user.uid}`,user,this.header)
+   }
 }

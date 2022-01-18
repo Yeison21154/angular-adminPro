@@ -9,8 +9,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class IncrementarComponent{
 
   @Input('incre1') progreso:number = 30;
-  @Output() valorSalida:EventEmitter<number> = new EventEmitter();
   @Input() btnClass:string = "btn btn-primary";
+  @Output() valorSalida:EventEmitter<number> = new EventEmitter();
   cambiarValor(valor:number){
 
     if(this.progreso >=100 && valor >=0){

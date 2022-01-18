@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit{
     recordar:[false]
   })
   login(){
-    console.log(this.loginForm.value);
     this._Us.Login(this.loginForm.value).subscribe(res=>{
       if(this.loginForm.get('recordar')?.value){
           localStorage.setItem('email',this.loginForm.get('email')?.value);
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit{
       Swal.fire('Error',err.error.msg,'error')
     });
   }
-
+//----------Google
   renderButton() {
     gapi.signin2.render('my-signin2', {
       'scope': 'profile email',
