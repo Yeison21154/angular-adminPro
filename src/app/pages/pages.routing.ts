@@ -10,6 +10,9 @@ import { RXJSComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from "../guard/auth.guard";
 import { PerfilesComponent } from "./perfiles/perfiles.component";
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { HospitalesComponent } from "./mantenimientos/hospitales/hospitales.component";
+import { MedicosComponent } from "./mantenimientos/medicos/medicos.component";
+import { MedicoComponent } from "./mantenimientos/medicos/medico.component";
 
 
 const routes:Routes =[{
@@ -22,8 +25,12 @@ const routes:Routes =[{
         { path:'promesas', component:PromesasComponent,data:{titulo:"Promesas"} },
         { path:'rxjs', component:RXJSComponent,data:{titulo:"Rxjs"}},
         //mantenimientos
-        { path:'usuarios', component:UsuariosComponent,data:{titulo:"Usuarios"}}
+        { path:'usuarios', component:UsuariosComponent,data:{titulo:"Mantenimiento Usuarios"}},
+        { path:'hospitales', component:HospitalesComponent,data:{titulo:"Mantenimiento Hospitales"}},
+        { path:'medicos', component:MedicosComponent,data:{titulo:"Mantenimiento Medicos"}},
+        { path:'medico/:id', component:MedicoComponent,data:{titulo:"Mantenimiento Medico"}}
       ]},
+
       
 ]
 @NgModule({

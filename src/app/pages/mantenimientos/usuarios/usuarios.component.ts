@@ -47,7 +47,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     if(this.desde < 0){
       this.desde = 0
     }else if(this.desde >= this.total){
-      this.desde -=valor 
+      this.desde =this.total ;
     }
     this.CargarUsuarios();
   }
@@ -56,7 +56,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       this.CargarUsuarios();
     }else if(argumento != ''){
     this._Ub.buscar('usuarios',argumento).subscribe(
-      resp=>{
+      (resp:any)=>{
         this.usuarios = resp
       }
     )

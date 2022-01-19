@@ -13,12 +13,16 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RXJSComponent } from './rxjs/rxjs.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 
 const myComponents =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,
-                     PromesasComponent,RXJSComponent]
+                     PromesasComponent,RXJSComponent, PerfilesComponent, UsuariosComponent, HospitalesComponent, MedicosComponent]
 
 @NgModule({
-  declarations: [myComponents, PerfilesComponent, UsuariosComponent],
+  declarations: [myComponents, MedicoComponent],
   exports:[myComponents],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ const myComponents =[DasboardComponent,ProgressComponent,Grafica1Component,Pages
     AppRoutingModule,
     FormsModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class PagesModule { }
