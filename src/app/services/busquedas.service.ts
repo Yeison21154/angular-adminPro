@@ -33,7 +33,9 @@ export class BusquedasService {
   private TransMedicos(resultado:any[]):Medicos[]{
     return resultado;
   }
-  
+  busquedaGlobal(argumento:string){
+    return this._http.get(`${urlAPI}/todo/${argumento}`,this.header);
+  }
   buscar(tipo:'usuarios'|'medicos'|'hospitales',argumento:string){
     return this._http.get<any[]>(`${urlAPI}/todo/coleccion/${tipo}/${argumento}`,this.header).pipe(
       map((res:any)=>{

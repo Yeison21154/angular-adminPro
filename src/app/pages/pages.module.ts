@@ -17,12 +17,13 @@ import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.comp
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
+import { BuscarComponent } from './buscar/buscar.component';
 
 const myComponents =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,
                      PromesasComponent,RXJSComponent, PerfilesComponent, UsuariosComponent, HospitalesComponent, MedicosComponent]
 
 @NgModule({
-  declarations: [myComponents, MedicoComponent],
+  declarations: [myComponents, MedicoComponent, BuscarComponent],
   exports:[myComponents],
   imports: [
     CommonModule,

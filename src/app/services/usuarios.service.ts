@@ -30,6 +30,9 @@ export class UsuariosService {
       }
     }
   }
+  get rol():'USER_ROLE'|'ADMIN_ROLE'{
+    return this.usuario.rol!;
+  }
   initGoogle(){
       return new Promise<void>(resolve=>{
         gapi.load('auth2', () =>{
@@ -44,21 +47,24 @@ export class UsuariosService {
   crearUsuario(formData:RegistroInt){
     return this.http.post(`${urlAPI}/usuarios`,formData).pipe(
                                     tap((res:any)=>{
-                                        localStorage.setItem('token',res.token)
+                                        localStorage.setItem('token',res.token);
+                                        localStorage.setItem('menu',JSON.stringify(res.menu));
                                     })
                               );
   }
   Login(formData:LoginInt){
     return this.http.post(`${urlAPI}/login`,formData).pipe(
                               tap((res:any)=>{
-                                  localStorage.setItem('token',res.token)
+                                  localStorage.setItem('token',res.token);
+                                  localStorage.setItem('menu',JSON.stringify(res.menu));
                               })
     );
   }
   LoginGoogle(token:any){
     return this.http.post(`${urlAPI}/login/google`,{token}).pipe(
                               tap((res:any)=>{
-                                  localStorage.setItem('token',res.token)
+                                  localStorage.setItem('token',res.token);
+                                  localStorage.setItem('menu',JSON.stringify(res.menu));
                               })
     );
   }
@@ -69,10 +75,11 @@ export class UsuariosService {
       }
     }).pipe(
       map((resp:any)=>{
-        console.log(resp);
+        //console.log(resp);
         const {nombre,email,img,google,rol,Estado,uid} = resp.usuarioDB;
         this.usuario = new Usuario(nombre,email,'',img,google,rol,Estado,uid)
         localStorage.setItem('token',resp.token);
+        localStorage.setItem('menu',JSON.stringify(resp.menu));
         return true;
       }),
       catchError(error=> of(false))
@@ -80,6 +87,7 @@ export class UsuariosService {
   }
   logoOut(){
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
     this._ruta.navigateByUrl('/login');
     this.auth2.signOut().then(()=> {
       this.ngZone.run(()=>{

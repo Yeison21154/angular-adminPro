@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
+import { SidebarService } from '../services/sidebar.service';
 
 declare function initFunctions():any;
 @Component({
@@ -10,10 +11,11 @@ declare function initFunctions():any;
 })
 export class PagesComponent implements OnInit {
 
-  constructor(private _setting:SettingsService) {  }
+  constructor(private _setting:SettingsService, private sidebarSer:SidebarService) {  }
 
   ngOnInit(): void {
     initFunctions();
+    this.sidebarSer.cargarMenu();
   }
 
 
