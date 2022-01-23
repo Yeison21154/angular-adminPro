@@ -19,14 +19,16 @@ export class LoginComponent implements OnInit{
   loginForm = this.fb.group({
     email:[localStorage.getItem('email') || '',[Validators.email,Validators.required]],
     password:['',Validators.required],
-    recordar:[false]
+    recordar:[localStorage.getItem('recordar') || '']
   })
   login(){
     this._Us.Login(this.loginForm.value).subscribe(res=>{
       if(this.loginForm.get('recordar')?.value){
           localStorage.setItem('email',this.loginForm.get('email')?.value);
+          localStorage.setItem('recordar',this.loginForm.get('recordar')?.value);
       }else{
         localStorage.removeItem('email');
+        localStorage.removeItem('recordar');
       }
       this._Router.navigateByUrl('/');
     },(err)=>{
