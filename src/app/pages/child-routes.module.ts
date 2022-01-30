@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { DasboardComponent } from "./dasboard/dasboard.component";
 import { Grafica1Component } from "./grafica1/grafica1.component";
 import { ProgressComponent } from "./progress/progress.component";
-import { PromesasComponent } from "./promesas/promesas.component";
 import { SettingsComponent } from './settings/settings.component';
-import { RXJSComponent } from './rxjs/rxjs.component';
 import { PerfilesComponent } from "./perfiles/perfiles.component";
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 import { HospitalesComponent } from "./mantenimientos/hospitales/hospitales.component";
@@ -20,8 +18,6 @@ const childRoutes:Routes = [
   { path:'grafica1', component:Grafica1Component,data:{titulo:"Graficas"} },
   { path:'perfil', component:PerfilesComponent,data:{titulo:'Perfil de Usuario'}},
   { path:'progress', component:ProgressComponent,data:{titulo:"Progress"} },
-  { path:'promesas', component:PromesasComponent,data:{titulo:"Promesas"} },
-  { path:'rxjs', component:RXJSComponent,data:{titulo:"Rxjs"}},
   { path:'settings', component:SettingsComponent,data:{titulo:"Settings"} },
   //mantenimientos
   { path:'hospitales', component:HospitalesComponent,data:{titulo:"Mantenimiento Hospitales"}},

@@ -9,8 +9,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { SettingsComponent } from './settings/settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RXJSComponent } from './rxjs/rxjs.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
@@ -19,8 +17,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 import { BuscarComponent } from './buscar/buscar.component';
 
-const myComponents =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,
-                     PromesasComponent,RXJSComponent, PerfilesComponent, UsuariosComponent, HospitalesComponent, MedicosComponent]
+const myComponents =[DasboardComponent,ProgressComponent,Grafica1Component,PagesComponent,SettingsComponent,PerfilesComponent, UsuariosComponent, HospitalesComponent, MedicosComponent]
 
 @NgModule({
   declarations: [myComponents, MedicoComponent, BuscarComponent],

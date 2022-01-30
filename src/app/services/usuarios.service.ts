@@ -80,6 +80,7 @@ export class UsuariosService {
         this.usuario = new Usuario(nombre,email,'',img,google,rol,Estado,uid)
         localStorage.setItem('token',resp.token);
         localStorage.setItem('menu',JSON.stringify(resp.menu));
+        localStorage.setItem('usuarioT',JSON.stringify(resp.uid))
         return true;
       }),
       catchError(error=> of(false))

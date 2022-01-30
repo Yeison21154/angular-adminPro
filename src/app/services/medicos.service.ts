@@ -27,7 +27,7 @@ export class MedicosService {
     );
   }
   getMedicos(){
-    return this._http.get<ResMedicos>(`${urlAPI}/medicos`,this.header).pipe(
+    return this._http.get<ResMedicos>(`${urlAPI}/medicos`).pipe(
       map(res=>{
         return res.medicosall;
       })

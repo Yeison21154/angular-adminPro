@@ -6,6 +6,8 @@ import { NotpagesfoundComponent } from './pages/notpagesfound/notpagesfound.comp
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './Interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { AuthModule } from './auth/auth.module';
     PagesModule,
     AuthModule
   ],
-  providers: [],
+  providers: [ {provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
